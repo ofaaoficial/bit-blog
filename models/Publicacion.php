@@ -64,17 +64,12 @@ class Publicacion extends Database
     public function actualizar_registro($data)
     {
         try {
-            $result = parent::connect()->prepare("UPDATE usuarios SET correo = ?, contrasenia = ?, nombres = ?, apellidos = ?, direccion = ?, celular = ?, sitio_web = ?, profesion = ?, rol_id  = ? WHERE id = ?");
-            $result->bindParam(1, $data['correo'], PDO::PARAM_STR);
-            $result->bindParam(2, $data['contrasenia'], PDO::PARAM_STR);
-            $result->bindParam(3, $data['nombres'], PDO::PARAM_STR);
-            $result->bindParam(4, $data['apellidos'], PDO::PARAM_STR);
-            $result->bindParam(5, $data['direccion'], PDO::PARAM_STR);
-            $result->bindParam(6, $data['celular'], PDO::PARAM_STR);
-            $result->bindParam(7, $data['sitio_web'], PDO::PARAM_STR);
-            $result->bindParam(8, $data['profesion'], PDO::PARAM_STR);
-            $result->bindParam(9, $data['rol_id'], PDO::PARAM_STR);
-            $result->bindParam(10, $data['id'], PDO::PARAM_STR);
+            $result = parent::connect()->prepare("UPDATE publicaciones SET titulo = ?, contenido = ?, fecha_edicion = ?, categoria_id = ? WHERE id = ?");
+            $result->bindParam(1, $data['titulo'], PDO::PARAM_STR);
+            $result->bindParam(2, $data['contenido'], PDO::PARAM_STR);
+            $result->bindParam(3, $data['fecha_edicion'], PDO::PARAM_STR);
+            $result->bindParam(4, $data['categoria_id'], PDO::PARAM_STR);
+            $result->bindParam(5, $data['id'], PDO::PARAM_STR);
             return $result->execute();
         } catch (Exception $e) {
             die("Error Publicacion->update_register(data) " . $e->getMessage());
@@ -88,7 +83,7 @@ class Publicacion extends Database
     public function borrar_registro($id)
     {
         try {
-            $result = parent::connect()->prepare("DELETE FROM usuarios WHERE id = ?");
+            $result = parent::connect()->prepare("DELETE FROM publicaciones WHERE id = ?");
             $result->bindParam(1, $id, PDO::PARAM_INT);
             $result->execute();
             return $result->fetch();

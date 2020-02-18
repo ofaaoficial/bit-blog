@@ -10,7 +10,7 @@
             <select name="categoria_id" id="categoria_id" class="form-control" required>
                 <option value="">-- Seleccionar categoria --</option>
                 <?php foreach ($categorias as $categoria): ?>
-                    <option value="<?= $categoria->id ?>" <?php if($categoria->id == $publicacion->categoria_id): ?> selected <?php endif; ?><?= $categoria->nombre ?></option>
+                    <option value="<?= $categoria->id ?>" <?php if($categoria->id == $publicacion->categoria_id): ?> selected <?php endif; ?>><?= $categoria->nombre ?></option>
                 <?php endforeach; ?>
             </select>
         </section>

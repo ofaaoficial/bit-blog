@@ -46,7 +46,7 @@ class publicacionController extends Publicacion
     }
 
     /**
-     *
+     * @return view
      */
     public function editar()
     {
@@ -58,22 +58,29 @@ class publicacionController extends Publicacion
     }
 
     /**
-     *
+     * @return header
      */
     public function actualizar()
     {
         $_POST['id'] = $_GET['id'];
-        if (parent::update_register($_POST)) {
-            return header('location:?controller=publicaciones');
+        $_POST['fecha_edicion'] = date('Y-m-d h:m:s');
+        if (parent::actualizar_registro($_POST)) {
+            return header('location:?controller=publicacion');
         } else {
             die('Error al actualizar');
         }
     }
 
     /**
-     *
+     * @return header
      */
     public function borrar()
     {
+        Seguridad::verificarRol(1);
+        if (parent::borrar_registro($_GET['id'])) {
+            return header('location:?controller=usuario');
+        } else {
+            die('Error al borrar');
+        }
     }
 }
