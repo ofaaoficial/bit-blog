@@ -62,7 +62,7 @@ class Categoria extends Database
             $result = parent::connect()->prepare("UPDATE categorias SET nombre = ?, descripcion = ? WHERE id = ?");
             $result->bindParam(1, $data['nombre'], PDO::PARAM_STR);
             $result->bindParam(2, $data['descripcion'], PDO::PARAM_STR);
-            $result->bindParam(10, $data['id'], PDO::PARAM_STR);
+            $result->bindParam(3, $data['id'], PDO::PARAM_STR);
             return $result->execute();
         } catch (Exception $e) {
             die("Error Categoria->update_register(data) " . $e->getMessage());
