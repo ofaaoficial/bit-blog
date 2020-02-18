@@ -23,7 +23,7 @@ class Seguridad extends Database
     }
 
     /**
-     *
+     * @return header
      */
     public static function verificarUsuario()
     {
@@ -33,9 +33,11 @@ class Seguridad extends Database
     /**
      * @param $role
      */
-    public function verificarRol($role)
+    public function verificarRol($rol)
     {
-        if (!$role == $_SESSION['usuario']['rol_id']) header('location:?method=login');
+        if ($rol != $_SESSION['usuario']->rol_id) {
+            return die('No tiene los permisos necesarios.');
+        }
     }
 
 }

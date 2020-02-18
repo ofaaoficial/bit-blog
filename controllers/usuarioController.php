@@ -6,6 +6,7 @@ class usuarioController extends Usuario
     public function __construct()
     {
         Seguridad::verificarUsuario();
+        Seguridad::verificarRol(1);
     }
 
     public function index()

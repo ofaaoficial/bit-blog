@@ -1,18 +1,17 @@
 <?php
 
 /**
- * Class categoriaController
+ * Class publicacionController
  */
-class categoriaController extends Categoria
+class publicacionController extends Publicacion
 {
 
     /**
-     * categoriaController constructor.
+     * publicacionController constructor.
      */
     public function __construct()
     {
         Seguridad::verificarUsuario();
-        Seguridad::verificarRol(1);
     }
 
     /**
@@ -21,7 +20,7 @@ class categoriaController extends Categoria
     public function index()
     {
         require_once 'views/layouts/header.php';
-        require_once 'views/categorias/index.php';
+        require_once 'views/publicaciones/index.php';
         require_once 'views/layouts/footer.php';
     }
 
@@ -30,52 +29,51 @@ class categoriaController extends Categoria
      */
     public function crear()
     {
+        $categorias = Categoria::todo();
         require_once 'views/layouts/header.php';
-        require_once 'views/categorias/crear.php';
+        require_once 'views/publicaciones/crear.php';
+        require_once 'views/layouts/footer.php';
+    }
+
+    /**
+     * @return header
+     */
+    public function almacenar()
+    {
+        $_POST['creador_id'] = $_SESSION['usuario']->id;
+        $_POST['fecha_creacion'] = date('Y-m-d h:m:s');
+        echo parent::registrar_datos($_POST) ? header('location: ?controller=publicacion') : 'Error en el registro';
+    }
+
+    /**
+     *
+     */
+    public function editar()
+    {
+        $publicacion = parent::buscar($_GET['id']);
+        $categorias = Categoria::todo();
+        require_once 'views/layouts/header.php';
+        require_once 'views/publicaciones/editar.php';
         require_once 'views/layouts/footer.php';
     }
 
     /**
      *
      */
-    public function almacenar()
-    {
-        echo parent::registrar_datos($_POST) ? header('location: ?controller=categoria') : 'Error en el registro';
-    }
-
-    /**
-     * @return view
-     */
-    public function editar()
-    {
-        $categoria = parent::buscar($_GET['id']);
-        require_once 'views/layouts/header.php';
-        require_once 'views/categorias/editar.php';
-        require_once 'views/layouts/footer.php';
-    }
-
-    /**
-     * @return header
-     */
     public function actualizar()
     {
         $_POST['id'] = $_GET['id'];
-        if (parent::actualizar_registro($_POST)) {
-            return header('location:?controller=categoria');
+        if (parent::update_register($_POST)) {
+            return header('location:?controller=publicaciones');
         } else {
             die('Error al actualizar');
         }
     }
 
     /**
-     * @return header
+     *
      */
     public function borrar()
     {
-        if (parent::borrar_registro($_GET['id'])) {
-            return header('location:?controller=categoria');
-        } else {
-            die('Error al borrar');
-        }
     }
 }

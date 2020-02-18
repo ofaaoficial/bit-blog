@@ -9,7 +9,7 @@ class Categoria extends Database
     /**
      * @return array
      */
-    public function todo()
+    public static function todo()
     {
         try {
             $result = parent::connect()->prepare("SELECT * FROM categorias");

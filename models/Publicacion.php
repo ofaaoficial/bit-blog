@@ -12,7 +12,7 @@ class Publicacion extends Database
     public function todo()
     {
         try {
-            $result = parent::connect()->prepare("SELECT * FROM publicaciones");
+            $result = parent::connect()->prepare("SELECT p.id, p.titulo, p.fecha_creacion, CONCAT(u.nombres, ' ' ,u.apellidos) AS creador FROM publicaciones p INNER JOIN usuarios u ON p.creador_id = u.id");
             $result->execute();
             return $result->fetchAll();
         } catch (Exception $e) {
@@ -27,16 +27,13 @@ class Publicacion extends Database
     public function registrar_datos($data)
     {
         try {
-            $result = parent::connect()->prepare("INSERT INTO usuarios (correo, contrasenia, nombres, apellidos, direccion, celular, sitio_web, profesion, rol_id) VALUES (?,?,?,?,?,?,?,?,?)");
-            $result->bindParam(1, $data['correo'], PDO::PARAM_STR);
-            $result->bindParam(2, $data['contrasenia'], PDO::PARAM_STR);
-            $result->bindParam(3, $data['nombres'], PDO::PARAM_STR);
-            $result->bindParam(4, $data['apellidos'], PDO::PARAM_STR);
-            $result->bindParam(5, $data['direccion'], PDO::PARAM_STR);
-            $result->bindParam(6, $data['celular'], PDO::PARAM_STR);
-            $result->bindParam(7, $data['sitio_web'], PDO::PARAM_STR);
-            $result->bindParam(8, $data['profesion'], PDO::PARAM_STR);
-            $result->bindParam(9, $data['rol_id'], PDO::PARAM_STR);
+            $result = parent::connect()->prepare("INSERT INTO publicaciones (titulo, contenido, fecha_creacion, fecha_edicion, categoria_id, creador_id) VALUES (?,?,?,?,?,?)");
+            $result->bindParam(1, $data['titulo'], PDO::PARAM_STR);
+            $result->bindParam(2, $data['contenido'], PDO::PARAM_STR);
+            $result->bindParam(3, $data['fecha_creacion'], PDO::PARAM_STR);
+            $result->bindParam(4, $data['fecha_edicion'], PDO::PARAM_STR);
+            $result->bindParam(5, $data['categoria_id'], PDO::PARAM_STR);
+            $result->bindParam(6, $data['creador_id'], PDO::PARAM_STR);
             return $result->execute();
         } catch (Exception $e) {
             die("Error Publicacion->register(data) " . $e->getMessage());
@@ -50,7 +47,7 @@ class Publicacion extends Database
     public function buscar($id)
     {
         try {
-            $result = parent::connect()->prepare("SELECT * FROM usuarios WHERE id = ?");
+            $result = parent::connect()->prepare("SELECT * FROM publicaciones WHERE id = ?");
             $result->bindParam(1, $id, PDO::PARAM_INT);
             $result->execute();
             return $result->fetch();

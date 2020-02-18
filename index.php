@@ -10,7 +10,7 @@ spl_autoload_register(function($class){
     }else if(file_exists("models/{$class}.php")){
         require_once "models/{$class}.php";
     }else{
-        die('The file no exists.');
+        die("The {$class} file no exists.");
     }
 });
 
