@@ -12,7 +12,8 @@ class Publicacion extends Database
     public function todo()
     {
         try {
-            $result = parent::connect()->prepare("SELECT p.id, p.titulo, p.fecha_creacion, CONCAT(u.nombres, ' ' ,u.apellidos) AS creador FROM publicaciones p INNER JOIN usuarios u ON p.creador_id = u.id");
+            $result = parent::connect()->prepare($_SESSION['usuario']->rol_id != 1 ? "SELECT p.id, p.titulo, p.fecha_creacion, CONCAT(u.nombres, ' ' ,u.apellidos) AS creador FROM publicaciones p INNER JOIN usuarios u ON p.creador_id = u.id WHERE creador_id = ?" : "SELECT p.id, p.titulo, p.fecha_creacion, CONCAT(u.nombres, ' ' ,u.apellidos) AS creador FROM publicaciones p INNER JOIN usuarios u ON p.creador_id = u.id");
+            if ($_SESSION['usuario']->rol_id != 1) $result->bindParam(1, $_SESSION['usuario']->id, PDO::PARAM_INT);
             $result->execute();
             return $result->fetchAll();
         } catch (Exception $e) {

@@ -6,11 +6,11 @@ class usuarioController extends Usuario
     public function __construct()
     {
         Seguridad::verificarUsuario();
-        Seguridad::verificarRol(1);
     }
 
     public function index()
     {
+        Seguridad::verificarRol(1);
         require_once 'views/layouts/header.php';
         require_once 'views/usuarios/index.php';
         require_once 'views/layouts/footer.php';
@@ -18,6 +18,7 @@ class usuarioController extends Usuario
 
     public function crear()
     {
+        Seguridad::verificarRol(1);
         $roles = Rol::todo();
         require_once 'views/layouts/header.php';
         require_once 'views/usuarios/crear.php';
@@ -33,6 +34,7 @@ class usuarioController extends Usuario
 
     public function editar()
     {
+        Seguridad::verificarRol(1);
         $roles = Rol::todo();
         $usuario = parent::buscar($_GET['id']);
         require_once 'views/layouts/header.php';
@@ -42,6 +44,7 @@ class usuarioController extends Usuario
 
     public function actualizar()
     {
+        Seguridad::verificarRol(1);
         $_POST['id'] = $_GET['id'];
         $_POST['contrasenia'] = password_hash($_POST['contrasenia'], PASSWORD_DEFAULT);
         if (parent::actualizar_registro($_POST)) {
@@ -53,6 +56,7 @@ class usuarioController extends Usuario
 
     public function borrar()
     {
+        Seguridad::verificarRol(1);
         if (parent::borrar_registro($_GET['id'])) {
             return header('location:?controller=usuario');
         } else {
