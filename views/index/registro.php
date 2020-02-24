@@ -1,6 +1,14 @@
-<section class="container">
-    <h1>Registro</h1>
-    <form action="?controller=usuario&method=almacenar" method="POST">
+
+   <!-- Main Content -->
+   <div class="main-content" >
+        <section class="section" style="margin-top: -90px;">
+    
+          <div class="section-body">
+            
+            <div class="card">
+            
+              <div class="card-body">
+              <form action="?controller=usuario&method=almacenar" method="POST">
         <section class="form-group">
             <label for="name">Nombres</label>
             <input type="text" name="nombres" id="nombres" required class="form-control" autofocus>
@@ -34,8 +42,16 @@
             <input type="text" name="profesion" id="profesion" required class="form-control">
         </section>
         <section class="form-group">
-            <input type="submit" value="Registar" class="btn btn-green">
-            <a href="?controller=index" class="btn btn-outline-red ml-2">Volver</a>
+            <input type="submit" value="Registar" class="btn btn-primary">
+            <a href="?controller=index" class="btn btn-link ml-2">Volver</a>
         </section>
     </form>
-</section>
+              </div>
+            
+            </div>
+          </div>
+        </section>
+      </div>
+     
+
+
