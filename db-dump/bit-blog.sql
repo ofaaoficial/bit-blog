@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2020 a las 19:25:24
+-- Tiempo de generación: 24-02-2020 a las 17:50:35
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -30,9 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
   `descripcion` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Tecnologia', 'Categoria de tecnologia.'),
+(2, 'Noticia', 'Noticas de la actualidad.'),
+(3, 'categoria de prueba', 'des');
 
 -- --------------------------------------------------------
 
@@ -42,10 +51,22 @@ CREATE TABLE `categorias` (
 
 CREATE TABLE `comentarios` (
   `id` int(11) NOT NULL,
-  `contenido` varchar(45) NOT NULL,
+  `contenido` varchar(500) NOT NULL,
   `publicacion_id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `contenido`, `publicacion_id`, `usuario_id`) VALUES
+(1, 'comentario 1', 1, 1),
+(2, 'Gracias por la informacion', 1, 2),
+(3, 'Tengo una pregunta, a cual correo puedo enviarla?', 1, 2),
+(4, 'Buena informacion.', 2, 2),
+(5, 'khqkjdshkashdkashd', 4, 1),
+(6, 'aishdihasdksdh', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -56,12 +77,22 @@ CREATE TABLE `comentarios` (
 CREATE TABLE `publicaciones` (
   `id` int(11) NOT NULL,
   `titulo` varchar(45) NOT NULL,
-  `contenido` varchar(45) NOT NULL,
+  `contenido` varchar(1000) NOT NULL,
   `fecha_creacion` datetime NOT NULL,
   `fecha_edicion` datetime DEFAULT NULL,
   `categoria_id` int(11) NOT NULL,
   `creador_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `publicaciones`
+--
+
+INSERT INTO `publicaciones` (`id`, `titulo`, `contenido`, `fecha_creacion`, `fecha_edicion`, `categoria_id`, `creador_id`) VALUES
+(1, 'Facebook os rechace una publicación', 'Si no queréis que Facebook os rechace una publicación promocionada porque tiene más del 20% de texto este post os interesará. A raíz de un tweet de @JaninaDG me he puesto a buscar formas de saber si las publicaciones tienen más o menos del 20% de texto. Hasta el momento para mi era un trabajo más bien manual, de ver y a ojo medir que mis publicaciones no tenían más del 20% de texto. Es importante saber si tu imagen tiene más del 20% para promocionarla  (Facebook Ads). La red social cumple muy a raja tabla esta política, yo he intentado colar un poco más del 20% y siempre me lo han rechazado.', '2020-02-18 07:02:41', '2020-02-24 03:02:33', 1, 1),
+(2, 'Tren del Pacífico: del desarrollo al abandono', 'Ya van más de dos años de proceso jurídico entre la ANI y Ferrocarril del Pacífico. Hasta que el tribunal de arbitramento no resuelva la situación no se podrá avanzar con el proyecto.\r\n\r\nEl Tren del Pacífico es una de las promesas de desarrollo para el Quindío que en un primer anuncio se advirtió que estaría listo en diciembre de 2013, pero hoy este proyecto, que acortaría los tiempos en el transporte de carga entre La Tebaida y Buenaventura y que además sería un atractivo turístico, se encuentra en completo abandono.\r\n\r\n', '2020-02-24 03:02:28', NULL, 2, 2),
+(3, 'Centros de salud no son para urgencias', 'Estas instituciones habilitan y acreditan servicios considerados de baja complejidad y se dedican a realizar intervenciones y actividades de promoción de la salud y prevención de la enfermedad, consulta médica y odontológica.\r\n\r\n', '2020-02-24 04:02:42', NULL, 2, 1),
+(4, 'titulo de prueba', 'contenido jdsafljsdafjsd', '2020-02-24 05:02:22', NULL, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -106,7 +137,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `correo`, `contrasenia`, `nombres`, `apellidos`, `direccion`, `celular`, `sitio_web`, `profesion`, `rol_id`) VALUES
-(1, 'oscarfamado@gmail.com', '$2y$10$.mwY.P4wL8lEUEkVAGBL3OSQldg.3hLEwItswroQAApMioK6Cb1l2', 'Oscar Felipe', 'Guerrero Amado', 'direccion', '3017311931', 'https://www.linkedin.com/in/ofaaoficial/', 'Desarrollador web', 1);
+(1, 'oscarfamado@gmail.com', '$2y$10$.mwY.P4wL8lEUEkVAGBL3OSQldg.3hLEwItswroQAApMioK6Cb1l2', 'Oscar Felipe', 'Guerrero Amado', 'direccion', '3017311931', 'https://www.linkedin.com/in/ofaaoficial/', 'Desarrollador web', 1),
+(2, 'andrescortes@gmail.com', '$2y$10$eE2ganVuDjGh7JdBm8y.qeqti8gPenlvXBkBY7dRCpsMMLudM2hW2', 'Andres', 'Cortes', 'no se', '301931123', 'http://google.com', 'Desarrollador', 2);
 
 --
 -- Índices para tablas volcadas
@@ -162,13 +194,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -180,7 +218,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
