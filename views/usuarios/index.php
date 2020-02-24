@@ -1,9 +1,23 @@
-<h1>Lista de usuarios</h1>
 
-<a href="?controller=usuario&method=crear">
-    <button class="btn btn-green">Crear</button>
-</a>
-<table class="table">
+   <!-- Main Content -->
+   <div class="main-content" >
+        <section class="section" style="margin-top: -90px;">
+          <div class="section-header">
+            <h1>Lista de usuarios</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="#">Usuarios</a></div>
+              <div class="breadcrumb-item">Listar</div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            
+            <div class="card">
+              <div class="card-header">
+              <a href="?controller=usuario&method=crear" class="btn btn-primary"> Crear</a>
+              </div>
+              <div class="card-body">
+              <table class="table">
     <thead>
     <th>id</th>
     <th>nombre</th>
@@ -24,14 +38,23 @@
             <td><?= $usuario->sitio_web ?></td>
             <td width="200" class="table__options">
                 <a href="?controller=usuario&method=editar&id=<?= $usuario->id ?>">
-                    <button class="btn btn-outline-green">Editar</button>
+                    <button class="btn btn-warning">Editar</button>
                 </a>
                 <a href="?controller=usuario&method=borrar&id=<?= $usuario->id ?>">
-                    <button class="btn btn-outline-red">Borrar</button>
+                    <button class="btn btn-danger">Borrar</button>
                 </a>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
+              </div>
+              <div class="card-footer bg-whitesmoke">
+                 <?php echo count(parent::todo()) ?> Usuarios
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+     
 
