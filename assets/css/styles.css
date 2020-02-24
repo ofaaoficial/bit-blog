@@ -13,22 +13,22 @@
      --red: #ff5640;
      --black: #505050;
  }
- 
+
  /**
      Fonts import
   */
- 
+
  @font-face {
      font-family: "Montserrat";
      src: url("../fonts/Montserrat/Montserrat-Light.ttf");
  }
- 
+
  @font-face {
      font-family: "Montserrat";
      font-weight: bold;
      src: url("../fonts/Montserrat/Montserrat-Bold.ttf");
  }
- 
+
  /**
      Resets css
   */
@@ -38,32 +38,31 @@
      border: none;
      outline: none;
      box-sizing: border-box;
-     transition: .4s all ease;
      word-break: break-word;
      color: var(--black);
      text-decoration: none;
      list-style: none;
  }
- 
+
  /**
      General styles
   */
  html {
      scroll-behavior: smooth;
  }
- 
+
  body {
      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
      width: 100%;
      overflow-x: hidden;
  }
- 
+
  .container, .navbar {
      padding-left: 50px;
      padding-right: 50px;
  }
- 
- 
+
+
  /**
      Styles of navbar
   */
@@ -74,28 +73,28 @@
      display: flex;
      align-items: center;
  }
- 
+
  .navbar-brand {
      color: #fff;
      font-weight: bold;
      font-size: 30px;
  }
- 
+
  .navbar-nav {
      display: flex;
      margin-left: auto;
  }
- 
+
  .navbar-nav li {
      padding: 20px;
  }
- 
+
  .nav-link {
      color: #fff;
      opacity: .7;
      position: relative;
  }
- 
+
  .nav-link::after {
      content: '';
      position: absolute;
@@ -106,39 +105,39 @@
      bottom: -4px;
      transition: .5s ease;
  }
- 
+
  .nav-link:hover {
      opacity: 1;
  }
- 
+
  .nav-link:hover::after {
      width: 100%;
      left: 0;
      transition: .5s ease;
  }
- 
+
  /**
      Fonts styles
   */
- 
+
  h1, h2, h3 {
      font-family: 'Montserrat';
      font-weight: bold;
      margin-bottom: 20px;
  }
- 
+
  h1 {
      color: var(--primary);
  }
- 
+
  p {
      color: var(--black);
  }
- 
+
  /**
      Bottoms styles
   */
- 
+
  .btn {
      padding: 8px 12px;
      border-radius: 5px;
@@ -146,77 +145,77 @@
      background: var(--primary);
      cursor: pointer;
  }
- 
+
  .btn:hover {
      transform: translateY(-1px);
      box-shadow: 0 5px 5px #00000014;
  }
- 
+
  .btn-green {
      color: #fff;
      background-color: var(--green);
  }
- 
+
  .btn-outline-green {
      border: 1px solid var(--green);
      color: var(--green);
      background: transparent;
  }
- 
+
  .btn-outline-green:hover {
      border: 1px solid var(--green);
      color: #fff;
      background: var(--green);
  }
- 
+
  .btn-outline-red {
      background: transparent;
      border: transparent;
      color: var(--red);
  }
- 
- 
+
+
  /**
      General styles of tables
   */
- 
+
  .table {
      width: 90%;
      margin: 0 auto;
      border-collapse: collapse;
      background: #fff;
  }
- 
+
  .table td, .table thead th {
      padding: 12px 8px;
      border-bottom: 1px solid rgba(0, 0, 0, 0.11);
      text-align: center;
  }
- 
+
  .table thead th {
      color: var(--secondary);
      text-transform: uppercase;
  }
- 
+
  .table tbody tr:hover {
      background: rgba(0, 0, 0, 0.11);
  }
- 
+
  .table__options {
      text-align: center;
  }
- 
- 
+
+
  .panel {
      max-width: 300px;
      padding: 30px;
      box-shadow: 0 5px 5px #0000000f;
  }
- 
+
  .panel:hover {
      transform: translateY(-5px);
  }
- 
+
  /**
      Forms styles
   */
@@ -226,7 +225,7 @@
      position: relative;
      margin: 10px 0;
  }
- 
+
  .form-group label {
      position: absolute;
      left: 5px;
@@ -236,7 +235,7 @@
      color: var(--black);
      font-size: 12px;
  }
- 
+
  .form-control {
      border: 1px solid #00000059;
      border-bottom: 2px solid var(--secondary);
@@ -244,12 +243,12 @@
      border-radius: 3px;
      width: 100%;
  }
- 
+
  .form-control:focus {
      border: 2px solid var(--secondary);
  }
- 
- 
+
+
  /**
      Style of login
   */
@@ -259,8 +258,8 @@
      padding: 30px;
      box-shadow: 0 4px 5px #0000003d;
  }
- 
- 
+
+
  /**
      Styles of publications
   */
@@ -271,7 +270,7 @@
      margin-right: auto;
      position: relative;
  }
- 
+
  .publicacion .categoria {
      position: absolute;
      right: 15px;
@@ -279,47 +278,46 @@
      color: #4b91bb;
      font-weight: bold;
  }
- 
+
  .publicacion_pie {
      display: flex;
      margin-top: 20px;
      border-top: 1px solid #a2a2a2;
      padding-top: 20px;
  }
- 
+
  .publicacion_pie .creador {
      margin-right: auto;
      color: #a2a2a2;
  }
- 
+
  .publicacion .ver {
      padding: 5px 5px;
      border-radius: 5px;
      border-bottom: 1px solid #9a9a9a;
      color: #9a9a9a;
  }
- 
+
  .publicacion .ver:hover {
      background: rgba(0, 0, 0, 0.11);
  }
- 
+
  .comentario {
      margin-top: 30px;
      margin-bottom: 30px;
  }
- 
+
  .comentario:hover {
      transform: translateY(0) !important;
  }
- 
+
  .form-comment:hover {
      transform: translateY(0) !important;
      box-shadow: 0 5px 5px #00000047;
  }
- 
+
  .form-register{
      max-width: 900px;
      margin-left: auto;
      margin-right: auto;
  }
- 
