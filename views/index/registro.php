@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container form-register">
     <h1>Registro</h1>
     <form action="?controller=usuario&method=almacenar" method="POST">
         <section class="form-group">

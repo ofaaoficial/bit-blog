@@ -4,7 +4,7 @@
 @charset "UTF-8";
 
 
-:root{
+:root {
     --primary: #132F40;
     --secondary: #51868C;
     --third: #F27D52;
@@ -32,7 +32,7 @@
 /**
     Resets css
  */
-*{
+* {
     margin: 0;
     padding: 0;
     border: none;
@@ -48,17 +48,17 @@
 /**
     General styles
  */
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     width: 100%;
     overflow-x: hidden;
 }
 
-.container, .navbar{
+.container, .navbar {
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -67,7 +67,7 @@ body{
 /**
     Styles of navbar
  */
-.navbar{
+.navbar {
     margin-bottom: 30px;
     width: 100%;
     background: var(--primary);
@@ -75,63 +75,63 @@ body{
     align-items: center;
 }
 
-.navbar-brand{
+.navbar-brand {
     color: #fff;
     font-weight: bold;
     font-size: 30px;
 }
 
-.navbar-nav{
+.navbar-nav {
     display: flex;
     margin-left: auto;
 }
 
-.navbar-nav li{
+.navbar-nav li {
     padding: 20px;
 }
 
-.nav-link{
+.nav-link {
     color: #fff;
     opacity: .7;
     position: relative;
 }
 
-    .nav-link::after{
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        background: #fff;
-        left: 100%;
-        bottom: -4px;
-        transition: .5s ease;
-    }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    left: 100%;
+    bottom: -4px;
+    transition: .5s ease;
+}
 
-    .nav-link:hover{
-        opacity: 1;
-    }
+.nav-link:hover {
+    opacity: 1;
+}
 
-        .nav-link:hover::after{
-            width: 100%;
-            left: 0;
-            transition: .5s ease;
-        }
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    transition: .5s ease;
+}
 
 /**
     Fonts styles
  */
 
-h1, h2, h3{
+h1, h2, h3 {
     font-family: 'Montserrat';
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-h1{
+h1 {
     color: var(--primary);
 }
 
-p{
+p {
     color: var(--black);
 }
 
@@ -139,7 +139,7 @@ p{
     Bottoms styles
  */
 
-.btn{
+.btn {
     padding: 8px 12px;
     border-radius: 5px;
     color: #fff;
@@ -147,88 +147,87 @@ p{
     cursor: pointer;
 }
 
-    .btn:hover{
-        transform: translateY(-1px);
-        box-shadow: 0 5px 5px #00000014;
-    }
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 5px #00000014;
+}
 
-    .btn-green{
-        color: #fff;
-        background-color: var(--green);
-    }
+.btn-green {
+    color: #fff;
+    background-color: var(--green);
+}
 
-    .btn-outline-green{
-        border: 1px solid var(--green);
-        color: var(--green);
-        background: transparent;
-    }
+.btn-outline-green {
+    border: 1px solid var(--green);
+    color: var(--green);
+    background: transparent;
+}
 
-    .btn-outline-green:hover{
-        border: 1px solid var(--green);
-        color: #fff;
-        background: var(--green);
-    }
+.btn-outline-green:hover {
+    border: 1px solid var(--green);
+    color: #fff;
+    background: var(--green);
+}
 
-    .btn-outline-red{
-        background: transparent;
-        border: transparent;
-        color: var(--red);
-    }
-
+.btn-outline-red {
+    background: transparent;
+    border: transparent;
+    color: var(--red);
+}
 
 
 /**
     General styles of tables
  */
 
-.table{
+.table {
     width: 90%;
     margin: 0 auto;
     border-collapse: collapse;
     background: #fff;
 }
 
-    .table td, .table thead th{
-        padding: 12px 8px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.11);
-        text-align: center;
-    }
+.table td, .table thead th {
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+    text-align: center;
+}
 
-    .table thead th{
-        color: var(--secondary);
-        text-transform: uppercase;
-    }
+.table thead th {
+    color: var(--secondary);
+    text-transform: uppercase;
+}
 
-    .table tbody tr:hover{
-        background: rgba(0, 0, 0, 0.11);
-    }
+.table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.11);
+}
 
-    .table__options{
-        text-align: center;
-    }
+.table__options {
+    text-align: center;
+}
 
 
-.panel{
+.panel {
     max-width: 300px;
     padding: 30px;
     box-shadow: 0 5px 5px #0000000f;
 }
 
-    .panel:hover{
-        transform: translateY(-5px);
-    }
+.panel:hover {
+    transform: translateY(-5px);
+}
 
 /**
     Forms styles
  */
-.form-group{
+.form-group {
     display: flex;
     width: 100%;
     position: relative;
     margin: 10px 0;
 }
 
-.form-group label{
+.form-group label {
     position: absolute;
     left: 5px;
     top: -2px;
@@ -238,7 +237,7 @@ p{
     font-size: 12px;
 }
 
-.form-control{
+.form-control {
     border: 1px solid #00000059;
     border-bottom: 2px solid var(--secondary);
     padding: 14px 8px;
@@ -246,7 +245,7 @@ p{
     width: 100%;
 }
 
-.form-control:focus{
+.form-control:focus {
     border: 2px solid var(--secondary);
 }
 
@@ -254,10 +253,72 @@ p{
 /**
     Style of login
  */
-.login-form{
+.login-form {
     margin: 0 auto;
     max-width: 300px;
     padding: 30px;
     box-shadow: 0 4px 5px #0000003d;
 }
 
+
+/**
+    Styles of publications
+ */
+.publicacion {
+    border: 1px solid #ebebeb;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.publicacion .categoria {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #4b91bb;
+    font-weight: bold;
+}
+
+.publicacion_pie {
+    display: flex;
+    margin-top: 20px;
+    border-top: 1px solid #a2a2a2;
+    padding-top: 20px;
+}
+
+.publicacion_pie .creador {
+    margin-right: auto;
+    color: #a2a2a2;
+}
+
+.publicacion .ver {
+    padding: 5px 5px;
+    border-radius: 5px;
+    border-bottom: 1px solid #9a9a9a;
+    color: #9a9a9a;
+}
+
+.publicacion .ver:hover {
+    background: rgba(0, 0, 0, 0.11);
+}
+
+.comentario {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.comentario:hover {
+    transform: translateY(0) !important;
+}
+
+.form-comment:hover {
+    transform: translateY(0) !important;
+    box-shadow: 0 5px 5px #00000047;
+}
+
+.form-register{
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
